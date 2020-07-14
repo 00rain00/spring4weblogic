@@ -62,7 +62,7 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<!-- <build>
 		<plugins>
 			
 
@@ -87,7 +87,7 @@
         <id>snapshots</id>
         <url>http://localhost:8080/</url>
     </snapshotRepository>
-</distributionManagement>
+</distributionManagement> -->
 	
 
 </project>
