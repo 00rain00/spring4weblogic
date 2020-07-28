@@ -35,9 +35,18 @@ public class DemoApplication  extends SpringBootServletInitializer implements We
         return "hello";
 	}
 	
-	@RequestMapping("/getAirport")
+	@RequestMapping("/getAirportById")
 	String getAirport(@Param("id" )Integer id){
-		Airport airport  = services.findAirportById(id);
+		Airport airport  = service.findAirportById(id);
+		String airportName = airport.getAirportName();
 		return airport.toString();
+	}
+
+	@RequestMapping("/getAirportByAirportName")
+	String getAirportByAirportName(@Param("name" )String name){
+		
+		
+		String s = service.findAirportByCity(name);
+		return  s;
 	}
 }
