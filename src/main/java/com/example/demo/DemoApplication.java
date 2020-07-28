@@ -13,8 +13,6 @@ import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-// import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.web.WebApplicationInitializer;
 
 

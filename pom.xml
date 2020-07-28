@@ -41,9 +41,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<exclusions>
-				<!-- <exclusion>
-
-				</exclusion> -->
+			
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
@@ -62,7 +60,8 @@
 		</dependency>
 	</dependencies>
 
-	<!-- <build>
+	<build>
+	
 		<plugins>
 			
 
@@ -87,7 +86,7 @@
         <id>snapshots</id>
         <url>http://localhost:8080/</url>
     </snapshotRepository>
-</distributionManagement> -->
+</distributionManagement>
 	
 
 </project>
