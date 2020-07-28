@@ -5,22 +5,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.RestController;
-
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.WebApplicationInitializer;
-
+import com.example.demo.entity.*;
+import com.example.demo.services.*;
+import org.apache.ibatis.annotations.Param;
 
 
 @RestController
 @SpringBootApplication
 public class DemoApplication  extends SpringBootServletInitializer implements WebApplicationInitializer {
-
+	@Autowired
+	private DemoService service;
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -29,10 +30,14 @@ public class DemoApplication  extends SpringBootServletInitializer implements We
 	public static void main(String[] args)throws Exception {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@RequestMapping("/hello")
+	@RequestMapping("/")
     String home() {
         return "hello";
 	}
 	
-	
+	@RequestMapping("/getAirport")
+	String getAirport(@Param("id" )Integer id){
+		Airport airport  = services.findAirportById(id);
+		return airport.toString();
+	}
 }
