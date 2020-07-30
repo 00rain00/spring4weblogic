@@ -1,12 +1,7 @@
 package com.example.demo.entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.io.Serializable;
-@Data
-@ToString
-@NoArgsConstructor
+
 public class Airport implements Serializable {
     private Integer idAirport;
     private String  AirportName;

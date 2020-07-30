@@ -11,6 +11,10 @@
             <wls:package-name>org.slf4j.*</wls:package-name>
             <wls:package-name>org.springframework.*</wls:package-name>
         </wls:prefer-application-packages>
+        
     </wls:container-descriptor>
- 
+ <!-- <wls:resource-description>
+    <jndi-name>applicationDs</jndi-name>
+    <res-ref-name>JDBC/Data_Source-0</res-ref-name>
+</wls:resource-description> -->
 </wls:weblogic-web-app>
