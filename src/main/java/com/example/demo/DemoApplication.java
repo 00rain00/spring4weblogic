@@ -68,6 +68,11 @@ public class DemoApplication  extends SpringBootServletInitializer implements We
 		return service.addNewAirport(name, city);
 	}
 
+	@RequestMapping(value="/deleteFlightByid",method=RequestMethod.DELETE)
+	boolean deleteFlightByid(@Param("id")Integer id){
+		return service.deleteFlightByid(id);
+	}
+
 	@RequestMapping(value="/updateFlight", method= RequestMethod.PUT)
 	Integer updateFlight(@Param("id")Integer id, @Param("attr") String attr, @Param("value") String value){
 		Flight flight = service.getFlightById(id);
