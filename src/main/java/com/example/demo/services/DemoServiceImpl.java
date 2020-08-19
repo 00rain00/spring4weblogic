@@ -64,5 +64,11 @@ public class DemoServiceImpl implements DemoService {
 
         return flightMapper.updateFlight(flight);
     }
+
+    @Override
+    public boolean deleteFlightByid(Integer id) {
+        
+        return flightMapper.deleteFlightbyid(id);
+    }
     
 }

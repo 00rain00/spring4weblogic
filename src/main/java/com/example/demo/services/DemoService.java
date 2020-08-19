@@ -11,7 +11,7 @@ public interface DemoService {
     Flight getFlightById(Integer id);
     Integer addNewAirport(String name,String city);
    Integer updateFlight(Flight flight);
-
+    boolean deleteFlightByid(Integer id);
    
    
    

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.entity.Flight;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -28,4 +29,7 @@ Integer insertFlight(@Param("airlineid" )Integer id,@Param("departid" )Integer d
 
 @Update(update)
 Integer updateFlight(Flight flight);
+
+@Delete("DELETE FROM Flight WHERE idFlight = #{id}")
+boolean deleteFlightbyid(@Param("id") Integer id);
 }
