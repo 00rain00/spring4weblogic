@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.WebApplicationInitializer;
@@ -20,7 +21,7 @@ import com.example.demo.services.DemoService;
 import org.apache.ibatis.annotations.Param;
 
 
-@RestController
+@Controller
 @SpringBootApplication
 public class DemoApplication  extends SpringBootServletInitializer implements WebApplicationInitializer {
 	@Autowired
@@ -33,7 +34,7 @@ public class DemoApplication  extends SpringBootServletInitializer implements We
 	public static void main(String[] args)throws Exception {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@RequestMapping("/index")
+	@GetMapping("/")
     String home() {
         return "hello";
 	}
@@ -45,10 +46,14 @@ public class DemoApplication  extends SpringBootServletInitializer implements We
 		return airport.toString();
 	}
 
-	@RequestMapping(value="/getAllFlight",method =RequestMethod.GET)
-	List <Flight> getAllFlighttByAirportName(){
+	@GetMapping(value="/getAllFlight")
+	String getAllFlightt(Model model){
 		
-		return service.getAllFlight();
+		List<Flight> flights = service.getAllFlight();
+		
+		
+		model.addAttribute("flights", flights);
+		return "listAll";
 	
 	}
 	@RequestMapping("/getFlightById")
