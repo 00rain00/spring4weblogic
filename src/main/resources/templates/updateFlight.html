@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <form action="#" th:action="@{/updateFlight/{id}(id=${flight.idFlight})}" th:object="${flight}" method="post">
+        <label for="airlineid">AirlineID</label>
+        <input type="number" th:field="*{airlineid}" id="airlineid" placeholder="Airlineid"></input>
+        <label for="departAirportid">departAirportid</label>
+        <input type="number" th:field="*{departAirportid}" id="departAirportid" placeholder="departAirportid"></input>
+        <label for="arriveAirportid">arriveAirportid</label>
+        <input type="number" th:field="*{arriveAirportid}" id="arriveAirportid" placeholder="arriveAirportid"></input>
+        <label for="departuretime">departuretime</label>
+        <input type="text" th:field="*{departtime}" id="departuretime" placeholder="departuretime"></input>
+        <label for="arrivetime">arrivetime</label>
+        <input type="text" th:field="*{arrivetime}" id="arrivetime" placeholder="arrivetime"></input>
+        <input type="submit" value="Update Flight">   </input>
+    </form>
+
+</html>

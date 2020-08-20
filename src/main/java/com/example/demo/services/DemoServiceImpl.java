@@ -59,9 +59,6 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public Integer updateFlight(Flight flight) {
         
-
-
-
         return flightMapper.updateFlight(flight);
     }
 
@@ -69,6 +66,31 @@ public class DemoServiceImpl implements DemoService {
     public boolean deleteFlightByid(Integer id) {
         
         return flightMapper.deleteFlightbyid(id);
+    }
+
+    @Override
+    public Integer addNewFlight(Flight flight) {
+        Integer AirlineID = flight.getAirlineid();
+        Integer DepartAirportID = flight.getdepartAirportid();
+        Integer ArriveAirportID = flight.getArriveAirportid();
+        String DepartureTime = flight.getDeparttime();
+        String ArriveTime= flight.getArrivetime();
+        return  flightMapper.insertFlight(AirlineID,DepartAirportID,ArriveAirportID,DepartureTime,ArriveTime);
+       
+    }
+
+    @Override
+    public List<Flight> searchFlights(Flight flight) {
+        Integer AirlineID = flight.getAirlineid();
+        Integer DepartAirportID = flight.getdepartAirportid();
+        Integer ArriveAirportID = flight.getArriveAirportid();
+        String DepartureTime = flight.getDeparttime();
+        String ArriveTime= flight.getArrivetime();
+        if(DepartureTime.isEmpty()||DepartureTime.equals(""))
+            { DepartureTime=null; System.out.println("Departuretime is set null");}
+            if(ArriveTime.isEmpty()||ArriveTime.equals(""))
+            { ArriveTime=null;}
+        return flightMapper.searchFlight(AirlineID,DepartAirportID,ArriveAirportID,DepartureTime,ArriveTime);
     }
     
 }
